@@ -1,4 +1,5 @@
+*.lock
 *.swp
 /node_modules/
-/dist/
+*.lock
 /rethinkdb_data/
