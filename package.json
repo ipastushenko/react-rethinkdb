@@ -17,7 +17,7 @@
     "dist"
   ],
   "dependencies": {
-    "rethinkdb-websocket-client": "git+https://git@github.com/coffenbacher/rethinkdb-websocket-client.git"
+    "rethinkdb-websocket-client": "git+https://git@github.com/ipastushenko/rethinkdb-websocket-client.git"
   },
   "devDependencies": {
     "babel": "^5.5.6",
