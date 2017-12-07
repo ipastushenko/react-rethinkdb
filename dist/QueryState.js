@@ -176,6 +176,10 @@ var QueryState = (function () {
         if (oldIndex < 0) {
           if (newVal) {
             this.value.push(newVal);
+          } else {
+            console.log(newVal);
+            console.log(oldVal);
+            console.log(this.value);
           }
         } else {
           if (newVal) {
