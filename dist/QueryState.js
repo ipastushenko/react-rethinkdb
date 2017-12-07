@@ -176,8 +176,6 @@ var QueryState = (function () {
         if (oldIndex < 0) {
           if (newVal) {
             this.value.push(newVal);
-          } else {
-            throw new Error('Change delta deleted nonexistent element');
           }
         } else {
           if (newVal) {
