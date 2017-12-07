@@ -177,9 +177,13 @@ var QueryState = (function () {
           if (newVal) {
             this.value.push(newVal);
           } else {
-            console.log(newVal);
-            console.log(oldVal);
-            console.log(this.value);
+            oldIndex = (0, _utilJs.findIndex)(this.value, function (x) {
+              return x.id === oldVal.id;
+            });
+            if (oldIndex < 0) {
+              throw new Error('old element has not found');
+            }
+            this.value.splice(oldIndex, 1);
           }
         } else {
           if (newVal) {
