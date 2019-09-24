@@ -84,9 +84,9 @@ var QueryState = (function () {
         });
       });
       promise.then(function (cursor) {
-        var isFeed = !!cursor.constructor.name.match(/Feed$/);
+        var isFeed = !!cursor.toString().match(/Feed]/);
         if (isFeed) {
-          var isPointFeed = cursor.constructor.name === 'AtomFeed';
+          var isPointFeed = cursor.toString().match(/AtomFeed]/);
           _this2.value = isPointFeed ? undefined : [];
           cursor.each(function (error, row) {
             if (error) {
@@ -104,7 +104,6 @@ var QueryState = (function () {
           });
         } else {
           if ((0, _utilJs.isCursor)(cursor)) {
-            console.log(cursor.toString());
             cursor.toArray().then(function (result) {
               _this2._updateValue(result);
             });
