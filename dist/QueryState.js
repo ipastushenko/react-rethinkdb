@@ -104,6 +104,7 @@ var QueryState = (function () {
           });
         } else {
           if ((0, _utilJs.isCursor)(cursor)) {
+            console.log(cursor);
             cursor.toArray().then(function (result) {
               _this2._updateValue(result);
             });
