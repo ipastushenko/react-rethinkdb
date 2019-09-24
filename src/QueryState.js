@@ -75,10 +75,13 @@ export class QueryState {
         });
       } else {
         if (isCursor(cursor)) {
-          console.log(cursor);
-          cursor.toArray().then(result => {
-            this._updateValue(result);
-          });
+          try {
+            cursor.toArray().then(result => {
+              this._updateValue(result);
+            });
+          } catch (e) {
+            this._updateValue(cursor);
+          }
         } else {
           this._updateValue(cursor);
         }

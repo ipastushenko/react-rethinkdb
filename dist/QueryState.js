@@ -104,10 +104,13 @@ var QueryState = (function () {
           });
         } else {
           if ((0, _utilJs.isCursor)(cursor)) {
-            console.log(cursor);
-            cursor.toArray().then(function (result) {
-              _this2._updateValue(result);
-            });
+            try {
+              cursor.toArray().then(function (result) {
+                _this2._updateValue(result);
+              });
+            } catch (e) {
+              _this2._updateValue(cursor);
+            }
           } else {
             _this2._updateValue(cursor);
           }
