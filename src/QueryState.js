@@ -55,9 +55,9 @@ export class QueryState {
     const promise = runQuery(changes ? changeQuery : query);
     this.closeHandlers.push(() => promise.then(x => isCursor(x) && x.close()));
     promise.then(cursor => {
-      const isFeed = !!cursor.constructor.name.match(/Feed$/);
+      const isFeed = !!cursor.toString().match(/Feed]/);
       if (isFeed) {
-        const isPointFeed = cursor.constructor.name === 'AtomFeed';
+        const isPointFeed = cursor.toString().match(/AtomFeed]/);
         this.value = isPointFeed ? undefined : [];
         cursor.each((error, row) => {
           if (error) {
@@ -75,7 +75,6 @@ export class QueryState {
         });
       } else {
         if (isCursor(cursor)) {
-          console.log(cursor.toString());
           cursor.toArray().then(result => {
             this._updateValue(result);
           });
